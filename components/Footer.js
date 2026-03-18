@@ -68,7 +68,10 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between items-center pt-8 gap-2 text-xs text-white/40">
           <span>&copy; 2026 Spruce Residential. All rights reserved.</span>
-          <span>Made with care in Wichita.</span>
+          <div className="flex gap-4">
+            <a href="/privacy" className="hover:text-warm-white transition-colors">Privacy Policy</a>
+            <span>Made with care in Wichita.</span>
+          </div>
         </div>
       </div>
     </footer>
