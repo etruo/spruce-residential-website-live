@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #2C2C2C;
+  background: #FDFBF7;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F5F0E8; }
+::-webkit-scrollbar-thumb { background: #B5AFA5; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #7A8B6F; }
+
+/* AppFolio iframe styling */
+.appfolio-iframe {
+  width: 100%;
+  min-height: 800px;
+  border-radius: 16px;
+  border: 1px solid #EDE6D8;
+  overflow: hidden;
+}
