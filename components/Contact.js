@@ -12,6 +12,7 @@ export default function Contact() {
     phone: '',
     type: 'general',
     message: '',
+    smsOptIn: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState(null);
@@ -179,6 +180,20 @@ export default function Contact() {
                     className={`${inputClass('message')} resize-none`}
                   />
                 </div>
+
+                <label className="flex items-start gap-3 p-4 bg-cream rounded-xl cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    name="smsOptIn"
+                    checked={formData.smsOptIn}
+                    onChange={(e) => setFormData({ ...formData, smsOptIn: e.target.checked })}
+                    className="mt-0.5 w-5 h-5 rounded accent-sage flex-shrink-0"
+                  />
+                  <span className="text-xs leading-relaxed text-charcoal-light">
+                    I agree to receive informational text messages from Spruce Residential LLC. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.{' '}
+                    <a href="/privacy" className="text-terracotta underline hover:text-terracotta-dark">Privacy Policy &amp; Terms</a>
+                  </span>
+                </label>
 
                 <button
                   type="submit"
