@@ -140,7 +140,7 @@ export default function Contact() {
                       onChange={handleChange}
                       onFocus={() => setFocused('phone')}
                       onBlur={() => setFocused(null)}
-                      placeholder="(316) 555-0000"
+                      placeholder="(316) 444-4365"
                       className={inputClass('phone')}
                     />
                   </div>
