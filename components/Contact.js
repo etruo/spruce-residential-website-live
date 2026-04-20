@@ -181,19 +181,36 @@ export default function Contact() {
                   />
                 </div>
 
-                <label className="flex items-start gap-3 p-4 bg-cream rounded-xl cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    name="smsOptIn"
-                    checked={formData.smsOptIn}
-                    onChange={(e) => setFormData({ ...formData, smsOptIn: e.target.checked })}
-                    className="mt-0.5 w-5 h-5 rounded accent-sage flex-shrink-0"
-                  />
-                  <span className="text-xs leading-relaxed text-charcoal-light">
-                    I agree to receive informational text messages from Spruce Residential LLC. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.{' '}
-                    <a href="/privacy" className="text-terracotta underline hover:text-terracotta-dark">Privacy Policy &amp; Terms</a>
-                  </span>
-                </label>
+                <div className="p-4 bg-cream rounded-xl flex flex-col gap-3">
+                  <p className="text-xs leading-relaxed text-charcoal-light">
+                    Spruce Residential LLC would like your consent to send informational text message communications from +13164444365 to your mobile number listed above, in response to your questions or to provide information relevant to your relationship with us. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply &apos;STOP&apos; to unsubscribe at any time. Reply &apos;HELP&apos; for assistance or more information. We do not share your mobile opt-in information with anyone. See our{' '}
+                    <a href="/privacy" className="text-terracotta underline hover:text-terracotta-dark">privacy policy and messaging terms and conditions</a>
+                    {' '}for more information.
+                  </p>
+                  <label className="flex items-center gap-2 text-xs text-charcoal-light cursor-pointer">
+                    <input
+                      type="radio"
+                      name="smsConsent"
+                      value="yes"
+                      required
+                      checked={formData.smsConsent === 'yes'}
+                      onChange={(e) => setFormData({ ...formData, smsConsent: e.target.value })}
+                      className="accent-sage flex-shrink-0"
+                    />
+                    Yes, I consent to receive informational messages from Spruce Residential LLC
+                  </label>
+                  <label className="flex items-center gap-2 text-xs text-charcoal-light cursor-pointer">
+                    <input
+                      type="radio"
+                      name="smsConsent"
+                      value="no"
+                      checked={formData.smsConsent === 'no'}
+                      onChange={(e) => setFormData({ ...formData, smsConsent: e.target.value })}
+                      className="accent-sage flex-shrink-0"
+                    />
+                    No, I do not want to receive any text messages from Spruce Residential LLC
+                  </label>
+              </div>
 
                 <button
                   type="submit"
