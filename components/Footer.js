@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const APPFOLIO_PORTAL = 'https://spruceresidential.appfolio.com/connect/users/sign_in';
 
 const footerLinks = {
@@ -23,22 +25,15 @@ export default function Footer() {
   return (
     <footer className="bg-charcoal text-white/60 px-6 md:px-12 pt-16 pb-8">
       <div className="max-w-7xl mx-auto">
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/[0.08]">
+
           <div>
-            <a href="#" className="inline-block mb-4">
-              <svg width="160" height="36" viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(340, 68)">
-                  <rect x="-4" y="18" width="8" height="18" rx="2" fill="#6B7D60"/>
-                  <polygon points="-28,20 0,-38 28,20" fill="#8BA37D"/>
-                  <polygon points="-22,4 0,-32 22,4" fill="#95B085"/>
-                  <polygon points="-16,-10 0,-42 16,-10" fill="#A4BF96"/>
-                  <circle cx="0" cy="-42" r="2.5" fill="#F5F0E8" opacity="0.7"/>
-                  <circle cx="-14" cy="-8" r="1.5" fill="#F5F0E8" opacity="0.45"/>
-                  <circle cx="14" cy="-8" r="1.5" fill="#F5F0E8" opacity="0.45"/>
-                </g>
-                <text x="298" y="95" textAnchor="end" fontFamily="'DM Serif Display', serif" fontSize="52" fontWeight="700" fill="#FDFBF7" letterSpacing="-1">spruce</text>
-                <text x="382" y="95" textAnchor="start" fontFamily="'DM Serif Display', serif" fontSize="52" fontWeight="700" fill="#C67A5C" letterSpacing="-1">residential</text>
-              </svg>
+            <a href="#" className="inline-block mb-6">
+              <span className="font-display text-2xl font-bold tracking-tight">
+                <span className="text-warm-white">spruce</span>
+                <span className="text-terracotta">residential</span>
+              </span>
             </a>
             <p className="text-sm leading-relaxed max-w-[280px]">
               White-glove residential property management across the Wichita, Kansas metro. Where home meets community.
@@ -55,7 +50,8 @@ export default function Footer() {
                   <a
                     key={link.label}
                     href={link.href}
-                    {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
                     className="text-sm text-white/50 hover:text-warm-white transition-colors"
                   >
                     {link.label}
@@ -64,6 +60,20 @@ export default function Footer() {
               </div>
             </div>
           ))}
+
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 py-8 border-b border-white/[0.08]">
+          <Image
+            src="/equal-housing-logowhite-1000.png"
+            alt="Equal Housing Opportunity"
+            width={48}
+            height={48}
+            className="opacity-70 flex-shrink-0"
+          />
+          <p className="text-xs text-white/40 leading-relaxed max-w-2xl">
+            We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing because of race, color, religion, sex, handicap, familial status, or national origin.
+          </p>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-center pt-8 gap-2 text-xs text-white/40">
@@ -73,6 +83,7 @@ export default function Footer() {
             <span>Made with care in Wichita.</span>
           </div>
         </div>
+
       </div>
     </footer>
   );
